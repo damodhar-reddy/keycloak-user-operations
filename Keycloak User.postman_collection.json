@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "78170bf9-ced1-4509-9bb6-4a5cb057c12d",
+		"name": "Keycloak User",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32062614"
+	},
+	"item": [
+		{
+			"name": "create user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userPersonalNo\":\"2288112\",\r\n    \"firstName\":\"Killua\",\r\n    \"middleName\":\"\",\r\n    \"lastName\":\"Zoldyck\",\r\n    \"email\":\"kzdyck@gmail.com\",\r\n    \"gender\":\"Male\",\r\n    \"password\":\"Kzdyck@411\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/user/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"user",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update user",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userPersonalNo\":\"2288112\",\r\n    \"firstName\":\"Killua\",\r\n    \"middleName\":\"\",\r\n    \"lastName\":\"Z\",\r\n    \"email\":\"killuaZdyck@gmail.com\",\r\n    \"gender\":\"Male\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/user/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"user",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userPersonalNo\":\"2288112\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/user/get",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"user",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userPersonalNo\":\"2288112\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/user/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"user",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user change active status",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userPersonalNo\":\"2168667\",\r\n    \"status\":\"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/user/change/active/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"user",
+						"change",
+						"active",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user change credentials",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "username",
+						"value": "2223334",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userPersonalNo\":\"2288112\",\r\n    \"currentPassword\":\"Kzdyck@411\",\r\n    \"newPassword\":\"Zoldyck@23\",\r\n    \"confirmNewPassword\":\"Zoldyck@23\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/user/change/credentials",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"user",
+						"change",
+						"credentials"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
