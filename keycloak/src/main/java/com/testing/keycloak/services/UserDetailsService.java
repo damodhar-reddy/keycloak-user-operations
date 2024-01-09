@@ -28,5 +28,4 @@ public interface UserDetailsService {
 
 	public ResponseEntity<Map<String, Object>> changeCredentials(ChangeCredentialsRequest changeCredentialsRequest,
 			String username);
-
 }

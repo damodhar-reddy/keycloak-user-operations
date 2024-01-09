@@ -250,7 +250,7 @@ public class KeycloakUtilities {
 			UserRepresentation users = fetchUserDataInKc(username.toLowerCase(), adminToken);
 			String url = "/" + keyValue.getUsersRealm() + "/users/" + users.getId();
 			final String keycloakUrl = keyValue.getAuthServerUrl() + "/admin/realms" + url + "/reset-password";
-
+			System.out.println(keycloakUrl);
 			final String ADMIN_TOKEN = adminToken;
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(MediaType.APPLICATION_JSON);

@@ -19,6 +19,7 @@ import com.testing.keycloak.requestbodies.CreateUserDetailsRequest;
 import com.testing.keycloak.requestbodies.GetUserDetailsRequest;
 import com.testing.keycloak.requestbodies.UpdateUserDetails;
 import com.testing.keycloak.services.UserDetailsService;
+import com.testing.keycloak.utilities.CaptchaUtilities;
 import com.testing.keycloak.utilities.KeycloakUtilities;
 import com.testing.keycloak.utilities.ResponseHandler;
 
@@ -33,7 +34,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Autowired
 	private UserDetailsRepository userDetailsRepository;
-
+	
+	@Autowired
+	private CaptchaUtilities captchaUtilities;
+	
 	@Override
 	@Transactional
 	public ResponseEntity<Map<String, Object>> createUserDetails(CreateUserDetailsRequest createUserDetails,
@@ -220,5 +224,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 			return ResponseHandler.response(kcChangeCredentials.getBody().get("message").toString(), false, null);
 		}
 	}
-
 }
