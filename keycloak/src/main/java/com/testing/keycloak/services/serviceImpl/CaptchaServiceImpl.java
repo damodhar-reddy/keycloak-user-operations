@@ -47,18 +47,22 @@ public class CaptchaServiceImpl implements CaptchaService {
 			return ResponseHandler.response("Please Provide Captcha Answer", false, null);
 		}
 		Map<String, String> captcha = captchaUtilities.storeAnswerInMap(null, null);
-		String finalCaptcha = captcha.get(request.get("captchaId")).toString();
-		if (finalCaptcha != null) {
-			log.debug("Login to authenticate..." + finalCaptcha);
-			if (finalCaptcha.equals(request.get("captchaAnswer"))) {
-				captcha.remove(request.get("captchaId"));
-				return ResponseHandler.response("Validated Successfully", true, null);
+		if (captcha.get(request.get("captchaId")) != null) {
+			String finalCaptcha = captcha.get(request.get("captchaId")).toString();
+			if (finalCaptcha != null) {
+				log.debug("Login to authenticate..." + finalCaptcha);
+				if (finalCaptcha.equals(request.get("captchaAnswer"))) {
+					captcha.remove(request.get("captchaId"));
+					return ResponseHandler.response("Validated Successfully", true, null);
+				} else {
+					captcha.remove(request.get("captchaId"));
+					return ResponseHandler.response("Please Provide Valid Captcha", false, null);
+				}
 			} else {
 				captcha.remove(request.get("captchaId"));
-				return ResponseHandler.response("Please Provide Valid Captcha", false, null);
+				return ResponseHandler.response("Please Provide new Captcha", false, null);
 			}
-		} else {
-			captcha.remove(request.get("captchaId"));
+		}else {
 			return ResponseHandler.response("Please Provide new Captcha", false, null);
 		}
 	}
